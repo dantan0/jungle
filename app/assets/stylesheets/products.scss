@@ -51,6 +51,17 @@ main section.categories-show {
         font-size: 0.8em;
       }
 
+      aside.empty {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        background-color: rgb(209, 119, 142);
+        color: rgb(255, 255, 255);
+        border-bottom-right-radius: 15px;
+        font-size: 0.8em;
+      }
+
       &:hover {
 
         border-color: #999;
