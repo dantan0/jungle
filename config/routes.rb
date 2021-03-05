@@ -19,6 +19,17 @@ Rails.application.routes.draw do
     resources :categories, only: [:index, :new, :create]
   end
 
+  # routes used for logging in and out
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  # routes used for signup
+  # first route renders a form in the browers
+  # second route receives the form and create a user in the database
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
