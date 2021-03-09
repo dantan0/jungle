@@ -19,25 +19,35 @@ RSpec.describe Product, type: :model do
         quantity: 10,
         price: 2000
       })
+      expect(@product).to_not be_valid
       expect(@product.id).to be_nil
+      expect(@product.errors.full_messages).to include("Category can't be blank")
+      expect(@product.errors.full_messages.count).to eq 1
     end
 
     it "doesn't save when name is missing" do
       @category = Category.find_or_create_by name: 'Tennis Racquets'
-      @product = Product.create({
+      @product = @category.products.create({
         quantity: 40,
         price: 199
       })
+      expect(@product).to_not be_valid
       expect(@product.id).to be_nil
+      expect(@product.errors.full_messages).to include("Name can't be blank")
+      expect(@product.errors.full_messages.count).to eq 1
     end
 
     it "doesn't save when price is missing" do 
       @category = Category.find_or_create_by name: 'Books'
-      @product = Product.create({
+      @product = @category.products.create({
         name: 'Pride and Prejudice',
         quantity: 30
       })
+      expect(@product).to_not be_valid
       expect(@product.id).to be_nil
+      expect(@product.errors.full_messages).to include("Price can't be blank")
+      expect(@product.errors.full_messages.count).to eq 3
     end
+
   end
 end
