@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
 
   def self.authenticate_with_credentials(email, password)
     @user = User.where("lower(email) = ?", email.strip.downcase).first
-    return @user if @user && @user.authenticate(password)
+    if @user && @user.authenticate(password)
+      return @user
+    else
+      return 'no'
+    end
   end
 end
