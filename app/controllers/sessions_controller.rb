@@ -6,7 +6,9 @@ class SessionsController < ApplicationController
     email = params[:user][:email]
     password = params[:user][:password]
 
-    if @user == User.authenticate_with_credentials(email, password)
+    @user = User.authenticate_with_credentials(email, password)
+
+    if @user
       session[:user_id] = @user.id
       redirect_to :root
     else
