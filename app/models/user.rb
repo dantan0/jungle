@@ -11,8 +11,6 @@ class User < ActiveRecord::Base
     @user = User.where("lower(email) = ?", email.strip.downcase).first
     if @user && @user.authenticate(password)
       return @user
-    else
-      return 'no'
     end
   end
 end
