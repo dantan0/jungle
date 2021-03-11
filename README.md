@@ -10,6 +10,9 @@ A mini e-commerce application built with Rails 4.2 and feature tested with Capyb
 ### Admin Product Page
 !["Admin Product Page"](https://github.com/dantan123/jungle/blob/master/docs/admin%20product%20page.png?raw=true)
 
+### Cart Page
+!["Cart Page"](https://github.com/dantan123/jungle/blob/master/docs/cart%20page.png?raw=true)
+
 ## Setup
 
 1. Run `bundle install` to install dependencies
